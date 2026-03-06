@@ -169,8 +169,14 @@ body::after{
 .nav-logo{
   font-family:var(--sans);font-weight:800;font-size:17px;
   letter-spacing:-.03em;color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;line-height:1;gap:1px;
 }
 .nav-logo span{color:var(--champ)}
+.nav-logo .studios{
+  font-family:var(--sans);font-weight:500;font-size:8px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--clay);opacity:.75;
+}
 .nav-links{display:flex;gap:1.6rem}
 .nav-links a{
   font-size:13px;font-weight:500;color:var(--cr50);
@@ -892,7 +898,10 @@ body::after{
 
 <!-- ════════════════════ NAV ════════════════════ -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Buildara<span>.</span></a>
+  <a href="#" class="nav-logo">
+    <div>Buildara<span>.</span></div>
+    <div class="studios">Studios</div>
+  </a>
   <div class="nav-links">
     <a href="#philosophy">Philosophy</a>
     <a href="#protocol">Process</a>
@@ -1142,12 +1151,7 @@ body::after{
       <div class="cta-form-wrap">
 
         <!-- Form view -->
-        <form id="buildaraForm" name="buildara-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?form=buildara-enquiry">
-          <input type="hidden" name="form-name" value="buildara-enquiry"/>
-          <p style="display:none;">
-            <label>Don’t fill this out: <input name="bot-field"/></label>
-          </p>
-
+        <form id="buildaraForm" name="buildara-enquiry" method="POST" action="https://formspree.io/f/mvzwokvo">
           <div id="inquiry-form-body">
           <p class="form-title">Project Enquiry</p>
           <p class="form-sub">Fill in the details below — the more you share, the better we can help.</p>
@@ -1258,7 +1262,7 @@ body::after{
       <div>
         <p class="f-col-h">Connect</p>
         <div class="f-links">
-          <a href="mailto:hello@buildarastudios.com">hello@buildarastudios.com</a>
+          <a href="/cdn-cgi/l/email-protection#244c4148484b6446514d4840455645575051404d4b570a474b49"><span class="__cf_email__" data-cfemail="7018151c1c1f301205191c1411021103040514191f035e131f1d">[email&#160;protected]</span></a>
           <a href="#contact">Start a Project</a>
           <a href="#">Instagram</a>
           <a href="#">LinkedIn</a>
@@ -1278,7 +1282,7 @@ body::after{
 <!-- ═══════════════════════════════════════════════════════
      JAVASCRIPT — ALL WIRED INTERACTIONS
 ═══════════════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── NAV MORPH ─────────────────────────────── */
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('morphed',window.scrollY>80)
@@ -1311,10 +1315,11 @@ window.addEventListener('scroll',()=>{
 
     try{
       const fd = new FormData(form);
-      const res = await fetch('/', {
+      const data = Object.fromEntries(fd.entries());
+      const res = await fetch('https://formspree.io/f/mvzwokvo', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeForm(fd)
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       });
 
       if(!res.ok) throw new Error('Netlify form submission failed');
@@ -1890,12 +1895,4 @@ window.addEventListener('load',()=>{
   }
 
   bootMoonlight()
-  buildGauges()
-  bootParticles()
-  bootCounters()
-  bootScanCanvas()
-
-  /* CTA section GSAP reveals */
-  if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
-    gsap.from('.cta-copy > *',{
-      y:40,opacity:0,duration:.9,stagger:.1,ease:'powe
+  bu
