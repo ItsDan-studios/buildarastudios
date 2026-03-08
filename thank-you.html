@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thank You — Buildara Studios</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIEBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUNvcm1vcmFudCtHYXJhbW9uZDppdGFsLHdnaHRAMSw2MDAmYW1wO2Rpc3BsYXk9c3dhcCcpOwogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBDMEUxMSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNDE4MjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI3IiBmaWxsPSJ1cmwoI2JnKSIvPgogIDx0ZXh0IHg9IjUiIHk9IjI3IgogICAgICAgIGZvbnQtZmFtaWx5PSInQ29ybW9yYW50IEdhcmFtb25kJywgJ0dlb3JnaWEnLCBzZXJpZiIKICAgICAgICBmb250LXN0eWxlPSJpdGFsaWMiCiAgICAgICAgZm9udC13ZWlnaHQ9IjYwMCIKICAgICAgICBmb250LXNpemU9IjI2IgogICAgICAgIGZpbGw9IiNDOEQ0REUiPmIuPC90ZXh0Pgo8L3N2Zz4="/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:    #090A0C;
+  --bg2:   #0C0E11;
+  --slate: #141820;
+  --moss:  #252C38;
+  --champ: #B8C4D0;
+  --champ2:#D0DDE8;
+  --c10:   rgba(184,196,208,.10);
+  --c18:   rgba(184,196,208,.18);
+  --c28:   rgba(184,196,208,.28);
+  --clay:  #8A9BAA;
+  --clay2: #A0B4C4;
+  --cl20:  rgba(138,155,170,.20);
+  --cream: #EEF0F2;
+  --cr70:  rgba(238,240,242,.70);
+  --cr50:  rgba(238,240,242,.50);
+  --cr30:  rgba(238,240,242,.30);
+  --cr15:  rgba(238,240,242,.15);
+  --cr08:  rgba(238,240,242,.08);
+  --mb:    rgba(37,44,56,.55);
+  --sans:  'Inter', sans-serif;
+  --serif: 'Cormorant Garamond', serif;
+  --mono:  'IBM Plex Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+}
+a{text-decoration:none;color:inherit}
+
+/* Grain overlay */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  opacity:.048;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  mix-blend-mode:overlay;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(to bottom,var(--champ),var(--clay));border-radius:2px}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:1.3rem;
+  left:50%;transform:translateX(-50%);
+  z-index:1000;
+  display:flex;align-items:center;gap:2rem;
+  padding:10px 16px;
+  border-radius:100px;
+  border:1px solid var(--mb);
+  background:rgba(9,10,12,.90);
+  backdrop-filter:blur(24px);
+  box-shadow:0 8px 48px rgba(0,0,0,.65),inset 0 1px 0 rgba(184,196,208,.05);
+  white-space:nowrap;
+}
+.nav-logo{
+  font-family:var(--sans);font-weight:800;font-size:17px;
+  letter-spacing:-.03em;color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;line-height:1;gap:1px;
+}
+.nav-logo span{color:var(--champ)}
+.nav-logo .studios{
+  font-family:var(--sans);font-weight:500;font-size:8px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--clay);opacity:.75;
+}
+.nav-links{display:flex;gap:1.6rem}
+.nav-links a{
+  font-size:13px;font-weight:500;color:var(--cr50);
+  display:inline-block;
+  transition:color .2s,transform .2s;
+}
+.nav-links a:hover{color:var(--cream);transform:translateY(-1px)}
+.nav-cta{
+  position:relative;overflow:hidden;
+  background:var(--champ);color:var(--bg);
+  font-family:var(--sans);font-weight:700;font-size:13px;
+  padding:9px 20px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform .28s cubic-bezier(.25,.46,.45,.94),box-shadow .28s;
+}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(184,196,208,.18)}
+.nav-cta .shine{position:absolute;inset:0;background:var(--cream);transform:translateX(-101%);transition:transform .34s ease;border-radius:inherit}
+.nav-cta:hover .shine{transform:translateX(0)}
+.nav-cta .lbl{position:relative;z-index:1}
+@media(max-width:768px){.nav-links{display:none}#nav{top:.8rem}}
+
+/* ── MAIN CONTENT ── */
+main{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  padding:8rem 2rem 4rem;
+  position:relative;
+}
+
+/* Ambient glow */
+main::before{
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse at center, rgba(184,196,208,.055) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.card{
+  position:relative;
+  max-width:600px;width:100%;
+  background:linear-gradient(135deg, rgba(20,24,32,.95) 0%, rgba(12,14,17,.98) 100%);
+  border:1px solid var(--c18);
+  border-radius:2rem;
+  padding:3.5rem;
+  text-align:center;
+  box-shadow:0 32px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(184,196,208,.07);
+  animation:card-rise .8s cubic-bezier(.22,.88,.36,1) both;
+}
+
+@keyframes card-rise{
+  from{opacity:0;transform:translateY(28px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+/* Check icon */
+.check-wrap{
+  width:72px;height:72px;
+  margin:0 auto 2rem;
+  position:relative;
+}
+.check-ring{
+  width:72px;height:72px;
+  border-radius:50%;
+  border:1.5px solid var(--c28);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--c10);
+  animation:ring-pop .6s .2s cubic-bezier(.22,.88,.36,1) both;
+}
+@keyframes ring-pop{
+  from{opacity:0;transform:scale(.6)}
+  to  {opacity:1;transform:scale(1)}
+}
+.check-ring svg{
+  width:28px;height:28px;
+  stroke:var(--champ);
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+  animation:draw-check .5s .55s ease both;
+}
+@keyframes draw-check{
+  from{opacity:0;stroke-dashoffset:40}
+  to  {opacity:1;stroke-dashoffset:0}
+}
+.check-ring svg polyline{stroke-dasharray:40}
+
+/* Eyebrow */
+.eyebrow{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--champ);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:1.2rem;
+  animation:fade-up .6s .4s ease both;
+}
+.eyebrow::before,.eyebrow::after{
+  content:'';display:block;width:20px;height:1px;background:var(--champ);opacity:.5;
+}
+
+/* Headline */
+.headline{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2rem,5vw,3rem);
+  letter-spacing:-.04em;line-height:1.05;
+  color:var(--cream);
+  margin-bottom:.6rem;
+  animation:fade-up .6s .5s ease both;
+}
+.headline em{
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  color:var(--champ);letter-spacing:-.02em;
+}
+
+/* Sub */
+.sub{
+  font-size:15px;font-weight:300;line-height:1.75;
+  color:var(--cr50);
+  max-width:420px;margin:0 auto 2.5rem;
+  animation:fade-up .6s .6s ease both;
+}
+
+/* Divider */
+.divider{
+  width:100%;height:1px;
+  background:linear-gradient(to right, transparent, var(--c18), transparent);
+  margin-bottom:2.5rem;
+  animation:fade-up .6s .65s ease both;
+}
+
+/* What's next list */
+.next-label{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cr30);
+  margin-bottom:1.2rem;
+  animation:fade-up .6s .7s ease both;
+}
+.next-steps{
+  display:flex;flex-direction:column;gap:.75rem;
+  margin-bottom:2.5rem;
+  animation:fade-up .6s .75s ease both;
+}
+.step{
+  display:flex;align-items:flex-start;gap:.9rem;
+  text-align:left;
+}
+.step-num{
+  flex-shrink:0;
+  width:22px;height:22px;
+  border-radius:50%;
+  border:1px solid var(--c28);
+  background:var(--c10);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;
+  color:var(--champ);
+  margin-top:1px;
+}
+.step-text{font-size:13.5px;font-weight:400;color:var(--cr70);line-height:1.6}
+.step-text strong{color:var(--cream);font-weight:600}
+
+/* CTA */
+.actions{
+  display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;
+  animation:fade-up .6s .85s ease both;
+}
+.btn-p{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--champ);color:var(--bg);
+  font-family:var(--sans);font-weight:700;font-size:13.5px;
+  padding:13px 28px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform .28s cubic-bezier(.25,.46,.45,.94),box-shadow .28s;
+  text-decoration:none;
+}
+.btn-p:hover{transform:scale(1.04);box-shadow:0 12px 44px rgba(184,196,208,.22)}
+.btn-p .shine{position:absolute;inset:0;background:var(--cream);transform:translateX(-101%);transition:transform .36s ease;border-radius:inherit}
+.btn-p:hover .shine{transform:translateX(0)}
+.btn-p .lbl,.btn-p svg{position:relative;z-index:1}
+.btn-p svg{transition:transform .2s;width:14px;height:14px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.btn-p:hover svg{transform:translateX(4px)}
+
+.btn-g{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;color:var(--cr70);
+  font-family:var(--sans);font-weight:500;font-size:13.5px;
+  padding:12px 24px;border-radius:100px;
+  border:1px solid var(--mb);cursor:pointer;
+  transition:color .2s,border-color .2s,transform .2s;
+  text-decoration:none;
+}
+.btn-g:hover{color:var(--cream);border-color:rgba(37,44,56,.75);transform:translateY(-1px)}
+
+@keyframes fade-up{
+  from{opacity:0;transform:translateY(14px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:2rem;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cr30);
+}
+
+@media(max-width:480px){
+  .card{padding:2.5rem 1.75rem}
+  .headline{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <div>Buildara<span>.</span></div>
+    <div class="studios">Studios</div>
+  </a>
+  <div class="nav-links">
+    <a href="/#philosophy">Philosophy</a>
+    <a href="/#protocol">Process</a>
+    <a href="/#contact">Enquire</a>
+  </div>
+  <a href="/#contact" class="nav-cta">
+    <span class="shine"></span>
+    <span class="lbl">Start Your Project</span>
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="card">
+
+    <!-- Check icon -->
+    <div class="check-wrap">
+      <div class="check-ring">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+
+    <!-- Eyebrow -->
+    <p class="eyebrow">Enquiry Received</p>
+
+    <!-- Headline -->
+    <h1 class="headline">We'll be in <em>touch.</em></h1>
+
+    <!-- Sub -->
+    <p class="sub">Your project enquiry has been sent successfully. We review every submission personally and will get back to you within 1–2 business days.</p>
+
+    <div class="divider"></div>
+
+    <!-- What's next -->
+    <p class="next-label">What happens next</p>
+    <div class="next-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <p class="step-text"><strong>We review your brief</strong> — we'll look over your project details and budget to make sure we're the right fit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <p class="step-text"><strong>We reach out</strong> — expect an email from us within 1–2 business days to discuss next steps.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <p class="step-text"><strong>We get to work</strong> — once aligned, we move fast. Your project is in good hands.</p>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <a href="/" class="btn-p">
+        <span class="shine"></span>
+        <span class="lbl">Back to Home</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>© 2025 Buildara Studios — All rights reserved</footer>
+
+</body>
+</html>
